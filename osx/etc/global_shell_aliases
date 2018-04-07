@@ -1,0 +1,60 @@
+#!/bin/bash
+
+#type emulate >/dev/null 2>/dev/null || alias emulate=true
+
+#alias vaginfo='export vaboxmach=default &&  VBoxManage showvminfo $(cat .vagrant/machines/${vaboxmach}/virtualbox/id) | grep NIC'
+
+alias dmenv='docker-machine env default; eval $(docker-machine env default)'
+
+
+function lsaf() { 
+	/bin/ls -aF |  sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/  /g'
+	echo 
+}
+
+function ppwd() { 
+	pwd | sed -e 's@/Users/[^/]*/@~/@g' 
+}
+
+function date_time() {
+	date +'%H:%M:%S'
+}
+
+
+alias dmtime='docker-machine ssh default "sudo date -s $(date_time)"'
+
+alias d2='ls -d */*'
+alias d3='ls -d */*/*'
+alias t2='tree --noreport -L 2 -F; echo -e "\n$(lsaf)\n\n\t $(ppwd)\n"'
+alias t3='tree --noreport -L 3 -F; echo -e "\n$(lsaf)\n\n\t $(ppwd)\n"'
+alias td2='tree --noreport -L 2 -d; echo -e "\n$(lsaf)\n\n\t $(ppwd)\n"'
+alias td3='tree --noreport -L 3 -d; echo -e "\n$(lsaf)\n\n\t $(ppwd)\n"'
+alias u2='CWD=`pwd`; cd ../; tree --noreport -L 3 -F; echo -e "\n  $(ppwd)"; echo -e "\n$(lsaf)\n"; cd ${CWD}; echo -e "\t $(ppwd)\n"'
+alias u3='CWD=`pwd`; cd ../../; tree --noreport -L 4 -F; echo -e "\n  $(ppwd)"; echo -e "\n$(lsaf)\n"; cd ${CWD}; echo -e "\t $(ppwd)\n"'
+alias u4='CWD=`pwd`; cd ../../../; tree --noreport -L 5 -F; echo -e "\n  $(ppwd)"; echo -e "\n$(lsaf)\n"; cd ${CWD}; echo -e "\t $(ppwd)\n"'
+alias ud2='CWD=`pwd`; cd ../; tree --noreport -L 3 -d -F; echo -e "\n  $(ppwd)"; echo -e "\n$(lsaf)\n"; cd ${CWD}; echo -e "\t $(ppwd)\n"'
+alias ud3='CWD=`pwd`; cd ../../; tree --noreport -L 4 -d -F; echo -e "\n  $(ppwd)"; echo -e "\n$(lsaf)\n"; cd ${CWD}; echo -e "\t $(ppwd)\n"'
+alias ud4='CWD=`pwd`; cd ../../../; tree --noreport -L 5 -d -F; echo -e "\n  $(ppwd)"; echo -e "\n$(lsaf)\n"; cd ${CWD}; echo -e "\t $(ppwd)\n"'
+
+# TERRAFORM LATEST
+#REDACTED#
+
+# HIGHLIGHTING
+alias paths='env | egrep --color=always  "^.*PATH"'
+
+# DEPS 
+alias depgraph='dep status -dot | dot -T png > deps.png && open deps.png'
+
+
+#---------------- PATH CONFIGURATION ---------------#
+
+# GO 
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$(go env GOPATH)
+export PATH=$PATH:$(go env GOPATH)/bin
+
+
+
+
+

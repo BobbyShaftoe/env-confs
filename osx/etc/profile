@@ -1,0 +1,17 @@
+# System-wide .profile for sh(2)
+
+if [ -x /usr/libexec/path_helper ]; then
+	eval `/usr/libexec/path_helper -s`
+fi
+
+if [ "${BASH-no}" != "no" ]; then
+	[ -r /etc/bashrc ] && . /etc/bashrc
+fi
+
+
+if [ -e "/etc/global_shell_aliases" ]; then
+ 	echo  "/etc/global_shell_aliases exists"
+        . /etc/global_shell_aliases
+    
+
+fi
