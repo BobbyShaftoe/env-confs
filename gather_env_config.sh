@@ -26,7 +26,10 @@ done
 echo '```'
 
 exec 1>/dev/tty
-find . -type f -exec egrep -qi 'access|key|api|secret' "{}" \; -exec perl -pi -e 's/.*(?:ACCESS.?KEY|API.?KEY|SECRET.*?KEY).*?=.*/#REDACTED#/gi' "{}" \; -exec grep -H 'REDACTED' "{}" \;
+find . -type f \
+  -exec egrep -qi 'access|key|api|secret' "{}" \; \
+  -exec perl -pi -e 's/.*(?:ACCESS.?KEY|API.?KEY|SECRET.*?KEY).*?=.*/#REDACTED#/gi' "{}" \; \
+  -exec grep -H 'REDACTED' "{}" \;
 
 stat_ops=$(cat <<'EOF' 
 \n
