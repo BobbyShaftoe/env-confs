@@ -2,7 +2,7 @@
 
 global_configs="/etc/bashrc /etc/profile /etc/global_shell_aliases /etc/bashrc"
 local_configs="~/.zshrc ~/.oh-my-zsh ~/.vimrc"
-application_configs="~/Projects/config/env.sh ~/Projects/config/PyCharm ~/Projects/config/intellij"
+application_configs="~/Projects/config/env.sh ~/Projects/config/PyCharm ~/Projects/config/intellij ~/Projects/config/GoLand"
 os_label='OS X'
 os_type='osx'
 

@@ -14,4 +14,5 @@
 * /Users/nicksinclair/Projects/config/env.sh: Regular File, Modified: Apr 13 01:51:02 2017
 * /Users/nicksinclair/Projects/config/PyCharm: Directory, Modified: Apr 12 02:33:58 2017
 * /Users/nicksinclair/Projects/config/intellij: Directory, Modified: Apr  8 20:54:26 2018
+* /Users/nicksinclair/Projects/config/GoLand: Directory, Modified: Apr 18 19:16:40 2018
 ```
