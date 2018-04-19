@@ -7,9 +7,11 @@ export ZSH=/Users/nicksinclair/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
-
-# Uncomment the following line to use case-sensitive completion.
+#ZSH_THEME="agnoster"
+ZSH_THEME="miloshadzic"
+#ZSH_THEME="nebirhos"
+#ZSH_THEME="norm"
+## Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
@@ -100,6 +102,13 @@ ps aux | grep fsevent_watch | wc -l | sed -e 's@^\([^0-9]\)*@\1@g'
 ps aux | grep fsevent_watch
 echo 
 
+
+# Git aliases
+alias git_before_yesterday='git diff-tree --pretty="" --no-commit-id --name-only -r `git log -1 --pretty=format:"%h" --before="yesterday"` 2>/dev/null | sed -e "s/^/* /g" || echo "None"'
+alias git_recently='git diff-tree --pretty="" --no-commit-id --name-only -r `git log -1 --pretty=format:"%h" --before="today"` 2>/dev/null | sed -e "s/^/* /g" || echo "None"'
+alias git_recents_report='cat ./README.md | sed -e "2,\$d"; echo -e "\n### Recents\n"; git_before_yesterday'
+
+# Navigation / exploring local directory structure and files
 alias d='ls -d *'
 alias d2='ls -d */*'
 alias d3='ls -d */*/*'
@@ -115,7 +124,7 @@ alias ud2='CWD=`pwd`; cd ../; tree --noreport -L 3 -d -F; echo -e "\n  $(ppwd)";
 alias ud3='CWD=`pwd`; cd ../../; tree --noreport -L 4 -d -F; echo -e "\n  $(ppwd)"; echo -n "\n$(lsaf)\n\n"; cd ${CWD}; echo -e "\t $(ppwd)\n\n"'
 alias ud4='CWD=`pwd`; cd ../../../; tree --noreport -L 5 -d -F; echo -e "\n  $(ppwd)"; echo -n "\n$(lsaf)\n\n"; cd ${CWD}; echo -e "\t $(ppwd)\n\n"'
 
-alias list_commands='alias | egrep "ls\s|tree\s" | egrep "^[a-z]{1,2}[0-9]?=" | sed -e "s/=.*$/ /g" | tr "\n" " "'
+alias list_commands='alias | egrep "ls\s|tree\s|ppwd" | egrep "^[a-z]{1,2}[0-9]?=" | sed -e "s/=.*$/ /g" | tr "\n" " " && echo'
 alias listers='list_commands'
 
 ##

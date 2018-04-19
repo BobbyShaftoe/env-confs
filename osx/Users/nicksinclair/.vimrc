@@ -1,3 +1,3 @@
 
 syntax on
-colo default
+colo delek
