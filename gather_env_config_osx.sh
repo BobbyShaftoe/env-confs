@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 global_configs="/etc/bashrc /etc/profile /etc/global_shell_aliases /etc/bashrc"
-local_configs="~/.zshrc ~/.oh-my-zsh ~/.vimrc"
+local_configs="~/.zshrc ~/.oh-my-zsh ~/.vimrc ~/.iterm2_shell_integration.zsh"
 application_configs="~/Projects/config/env.sh ~/Projects/config/PyCharm ~/Projects/config/intellij ~/Projects/config/GoLand"
 os_label='OS X'
 os_type='osx'
@@ -42,5 +42,6 @@ stat_ops=$(cat <<'EOF'
   Y       Insert a `` -> '' into the output.\n
 EOF
 )
+
 
 
